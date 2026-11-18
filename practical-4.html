@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Computer Science & Engineering | Marwadi University</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #598af6;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .wrapper {
+            width: 92%;
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        /* ---------------- HEADER ---------------- */
+
+        .top-header {
+            background: lightslategray;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand img {
+            width: 170px;
+            height: auto;
+        }
+
+        .menu {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #ffffff;
+            padding: 10px 13px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        /* ---------------- GENERAL SECTION ---------------- */
+
+        .content-section {
+            padding: 70px 0;
+        }
+
+        .white-section {
+            background: #ffffff;
+        }
+
+        .heading {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .heading-line {
+            width: 55px;
+            height: 4px;
+            background: #2563eb;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .description {
+            max-width: 900px;
+            color: #475569;
+            font-size: 16px;
+        }
+
+        /* ---------------- MISSION / PSO ---------------- */
+
+        .points {
+            display: grid;
+            gap: 18px;
+            max-width: 950px;
+        }
+
+        .point {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: #f8fafc;
+            padding: 18px;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+        }
+
+        .point-number {
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .point p {
+            color: #475569;
+            font-size: 15px;
+        }
+
+        /* ---------------- COURSES ---------------- */
+
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .course-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 25px 20px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .course-box:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+            border-color: #2563eb;
+        }
+
+        .course-symbol {
+            width: 48px;
+            height: 48px;
+            background: #dbeafe;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .course-box h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .course-box p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* ---------------- GALLERY ---------------- */
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .photo-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .photo-name {
+            padding: 14px;
+            text-align: center;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* ---------------- RECRUITERS ---------------- */
+
+        .company-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .company {
+            min-height: 120px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        .company:hover {
+            border-color: #2563eb;
+            transform: translateY(-4px);
+        }
+
+        .company img {
+            width: 115px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .company strong {
+            font-size: 14px;
+            color: #334155;
+        }
+
+        /* ---------------- CONTACT ---------------- */
+
+        .contact-box {
+            margin-top: 30px;
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 9px;
+        }
+
+        .contact-icon {
+            font-size: 23px;
+        }
+
+        .contact-detail small {
+            display: block;
+            color: #2563eb;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .contact-detail p {
+            font-size: 14px;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 35px;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .footer-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .footer-menu a:hover {
+            color: #60a5fa;
+        }
+
+        .copyright {
+            border-top: 1px solid #334155;
+            text-align: center;
+            padding-top: 18px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 0;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .course-container,
+            .company-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .heading {
+                font-size: 26px;
+            }
+
+            .course-container,
+            .photo-grid,
+            .company-list,
+            .contact-layout,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                gap: 3px;
+            }
+
+            .menu a {
+                font-size: 11px;
+                padding: 7px;
+            }
+
+            .contact-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="top-header">
+        <div class="wrapper navbar">
+
+            <a href="#vision" class="brand">
+                <img src="images/marwadi-logo.svg" alt="Marwadi University Logo">
+            </a>
+
+            <ul class="menu">
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#pso">PSO</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#recruiters">Recruiters</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Vision -->
+        <section class="content-section" id="vision">
+            <div class="wrapper">
+
+                <h2 class="heading">Vision</h2>
+                <div class="heading-line"></div>
+
+                <p class="description">
+                    To empower Innovators in Computer Science & Engineering
+                    through education, research, and ethical practices to create
+                    sustainable solutions with global impact.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Mission -->
+        <section class="content-section white-section" id="mission">
+            <div class="wrapper">
+
+                <h2 class="heading">Mission</h2>
+                <div class="heading-line"></div>
+
+                <div class="points">
+
+                    <div class="point">
+                        <span class="point-number">1</span>
+                        <p>
+                            Deliver quality education in Computer Science &
+                            Engineering through modern, technology-enabled
+                            pedagogies and strong industry collaboration.
+                        </p>
+                    </div>
+
+                    <div class="point">
+                        <span class="point-number">2</span>
+                        <p>
+                            Foster innovation, entrepreneurship, and
+                            interdisciplinary research to drive creativity
+                            and problem-solving.
+                        </p>
+                    </div>
+
+                    <div class="point">
+                        <span class="point-number">3</span>
+                        <p>
+                            Promote ethical computing, sustainability, and
+                            professional responsibility to nurture socially
+                            conscious graduates.
+                        </p>
+                    </div>
+
+                    <div class="point">
+                        <span class="point-number">4</span>
+                        <p>
+                            Prepare students for lifelong learning, global
+                            employability, and leadership in emerging domains
+                            such as AI, Data Science, Cloud Computing,
+                            Cybersecurity, and beyond.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PSO -->
+        <section class="content-section" id="pso">
+            <div class="wrapper">
+
+                <h2 class="heading">Program Specific Outcomes (PSOs)</h2>
+                <div class="heading-line"></div>
+
+                <div class="points">
+
+                    <div class="point">
+                        <span class="point-number">1</span>
+                        <p>
+                            Design and develop secure, efficient, and scalable
+                            software systems, intelligent applications, and
+                            computing solutions using industry-standard tools
+                            and frameworks.
+                        </p>
+                    </div>
+
+                    <div class="point">
+                        <span class="point-number">2</span>
+                        <p>
+                            Apply Artificial Intelligence, Data Science,
+                            Cloud Computing, Cybersecurity, and emerging
+                            technologies responsibly to create innovative
+                            and sustainable solutions for real-world challenges.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Courses -->
+        <section class="content-section white-section" id="courses">
+            <div class="wrapper">
+
+                <h2 class="heading">Courses Offered</h2>
+                <div class="heading-line"></div>
+
+                <div class="course-container">
+
+                    <div class="course-box">
+                        <div class="course-symbol">💻</div>
+                        <h3>B.Tech Computer Science Engineering</h3>
+                        <p>
+                            Software development, algorithms, databases,
+                            and core software engineering.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">🤖</div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>
+                            Intelligent systems, neural networks, NLP,
+                            and machine intelligence.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">📊</div>
+                        <h3>Data Science</h3>
+                        <p>
+                            Big data analytics, statistical modeling,
+                            and data visualization.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">🛡️</div>
+                        <h3>Cyber Security</h3>
+                        <p>
+                            Network defense, ethical hacking, digital
+                            forensics, and cryptography.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">☁️</div>
+                        <h3>Cloud Computing</h3>
+                        <p>
+                            Distributed computing, DevOps, virtualization,
+                            and cloud architecture.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">🌐</div>
+                        <h3>Internet of Things</h3>
+                        <p>
+                            Smart sensors, embedded systems,
+                            microcontrollers, and IoT networks.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">🧠</div>
+                        <h3>Machine Learning</h3>
+                        <p>
+                            Learning algorithms, pattern recognition,
+                            computer vision, and deep learning.
+                        </p>
+                    </div>
+
+                    <div class="course-box">
+                        <div class="course-symbol">⚡</div>
+                        <h3>Full Stack Development</h3>
+                        <p>
+                            Frontend frameworks, backend REST APIs,
+                            and database engineering.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gallery -->
+        <section class="content-section" id="gallery">
+            <div class="wrapper">
+
+                <h2 class="heading">Image Gallery</h2>
+                <div class="heading-line"></div>
+
+                <div class="photo-grid">
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+                             alt="Hackathon">
+                        <div class="photo-name">Hackathon</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
+                             alt="Technical Fest">
+                        <div class="photo-name">Technical Fest</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80"
+                             alt="Sports">
+                        <div class="photo-name">Sports</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                             alt="Workshop">
+                        <div class="photo-name">Workshop</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
+                             alt="Coding Competition">
+                        <div class="photo-name">Coding Competition</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                             alt="Industry Visit">
+                        <div class="photo-name">Industry Visit</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80"
+                             alt="Seminar">
+                        <div class="photo-name">Seminar</div>
+                    </div>
+
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80"
+                             alt="Placement Drive">
+                        <div class="photo-name">Placement Drive</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Recruiters -->
+        <section class="content-section white-section" id="recruiters">
+            <div class="wrapper">
+
+                <h2 class="heading">Top Recruiters</h2>
+                <div class="heading-line"></div>
+
+                <div class="company-list">
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                             alt="Google">
+                        <strong>Google</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_(2012).svg"
+                             alt="Microsoft">
+                        <strong>Microsoft</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                             alt="Amazon">
+                        <strong>Amazon</strong>
+                    </div>
+
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg"
+                             alt="Infosys">
+                        <strong>Infosys</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg"
+                             alt="Wipro">
+                        <strong>Wipro</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
+                             alt="IBM">
+                        <strong>IBM</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg"
+                             alt="Capgemini">
+                        <strong>Capgemini</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+                             alt="Accenture">
+                        <strong>Accenture</strong>
+                    </div>
+
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg"
+                             alt="Oracle">
+                        <strong>Oracle</strong>
+                    </div>
+
+                    <div class="company">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg"
+                             alt="Adobe">
+                        <strong>Adobe</strong>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact -->
+        <section class="content-section" id="contact">
+            <div class="wrapper">
+
+                <h2 class="heading">Contact Us</h2>
+                <div class="heading-line"></div>
+
+                <div class="contact-box">
+
+                    <div class="contact-layout">
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">🏛️</div>
+                            <div>
+                                <small>College Name</small>
+                                <p>
+                                    Faculty of Computer Science & Engineering<br>
+                                    Marwadi University
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <small>Email Address</small>
+                                <p>cse.info@marwadiuniversity.ac.in</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <small>Phone Number</small>
+                                <p>+91 281 7123456 / +91 89800 30090</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <small>Campus Address</small>
+                                <p>
+                                    Rajkot-Morbi Highway,
+                                    Rajkot, Gujarat 360003
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="wrapper">
+
+            <div class="footer-content">
+
+                <div>
+                    <h3>Faculty of Computer Science & Engineering</h3>
+                    <p>
+                        Marwadi University — Empowering future software
+                        engineers, researchers, and technology entrepreneurs.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+
+                    <div class="footer-menu">
+                        <a href="#vision">Vision</a>
+                        <a href="#mission">Mission</a>
+                        <a href="#pso">PSO</a>
+                        <a href="#courses">Courses</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#recruiters">Recruiters</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Contact Information</h3>
+
+                    <p>
+                        Rajkot-Morbi Highway, Rajkot, Gujarat 360003
+                        <br><br>
+                        Email: cse.info@marwadiuniversity.ac.in
+                        <br>
+                        Phone: +91 281 7123456
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 Faculty of Computer Science & Engineering,
+                Marwadi University. All Rights Reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
